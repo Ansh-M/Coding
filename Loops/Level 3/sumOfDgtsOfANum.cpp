@@ -2,8 +2,16 @@
 using namespace std;
 
 void sumOfDigits(int num){
+    int sum=0;
+    // for( ; num!=0 ; num=num/10) sum += num%10;
+    // cout<<"Sum of Digits: "<<sum;
     
-    for()
+    while(num != 0){
+        sum += num % 10;
+        num = num / 10;
+    }
+    cout<<"Sum of Digits: "<<sum;
+
 }
 
 int main(){
