@@ -1,2 +1,5 @@
-sum += num%10;
-    // cout<<"Sum of Digits: "<<sum;
+= 0){
+        rev = (rev*10) + num % 10;
+        num = num / 10;
+    }
+    return rev;
