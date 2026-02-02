@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-int numberLength(int num){
+int numberLength(int num){ // Number of variables:- 2 variables
     int length=0;
     for( ; num!=0 ; num=num/10) length++;
     return length;
@@ -13,18 +13,26 @@ int numberLength(int num){
     // return length;
 }
 
-int sumCubedDigits(int num, int numLen){
-    int sum=0;
-    for( ; num!=0 ; num=num/10){
-        int digit=1;
-        for(int i=numLen ; i!=0 ; i--) digit *= num%10;
-        sum += digit;
+void sumOfDigits(int num){ // Number of variables:- 5 + 1(loop variable) 
+    int sum=0, number=num;
+    // for( ; num!=0 ; num=num/10){
+    //     int digit=1;
+    //     for(int i=numLen ; i!=0 ; i--) digit *= num%10;
+    //     sum += digit;
+    // }
+    int numLen = numberLength(number);
+    
+    int digit=1;
+    for(int i=numLen ; i!=0 && num!=0 ; i--){
+        digit *= num%10;
+        if(i == 1){
+            i=numLen+1;
+            num = num / 10;
+            sum += digit;
+            digit=1;
+        }
     }
-    return sum;
-}
-
-void isArmstrong(int num, int sum){
-    if(num == sum) cout<<"Armstrong Number";
+    if(sum == number) cout<<"Armstrong Number";
     else cout<<"Not an Armstrong Number";
 }
 
@@ -34,8 +42,6 @@ int main(){
     cout<<"Enter a number to check if its ArmStrong: ";
     cin>>number;
 
-    int numLen = numberLength(number);
-    int sum = sumCubedDigits(number, numLen);
-    isArmstrong(number, sum); 
+    sumOfDigits(number);
     return 0;
 }
