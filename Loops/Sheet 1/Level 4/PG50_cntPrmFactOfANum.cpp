@@ -3,6 +3,8 @@ using namespace std;
 
 int countPrimeFactorsOfANumber(int num){
     int countFactors=0;
+
+    if(num == 1) return 1;
     
     for(int i=2 ; i<=num ; i++){
         if(num % i == 0){

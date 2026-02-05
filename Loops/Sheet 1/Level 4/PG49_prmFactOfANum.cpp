@@ -3,12 +3,14 @@ using namespace std;
 
 void printPrimeFactorsOfANumber(int num){
     cout<<"Prime Factors of "<<num<<": ";
-    
-    for(int i=2 ; i<=num ; i++){
-        if(num % i == 0){
-            cout<<i<<" ";
-            num=num/i;
-            i--;
+    if(num == 1) cout<<"1";
+    else{
+        for(int i=2 ; i<=num ; i++){
+            if(num % i == 0){
+                cout<<i<<" ";
+                num=num/i;
+                i--;
+            }
         }
     }
 }
