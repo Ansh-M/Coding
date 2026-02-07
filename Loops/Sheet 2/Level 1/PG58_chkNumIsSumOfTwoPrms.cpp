@@ -5,18 +5,18 @@ void checkNumberIsSumOfTwoPrimes(int num){
     if(num % 2 == 0 && num > 2){
         int primeOne=0, primeTwo=0;
         int i=0;
-        for(i=2 ; i<num ; i++){
-            int flag=0;
-            
-            for(int j=2 ; j<i ; j++){
-                if(i%j == 0 && i!=2){
-                    flag=1;
+        for(i = 2 ; i <= num/2 ; i++){
+            int flag = 0;
+
+            for(int j = 2 ; j < i ; j++){
+                if(i % j == 0 && i != 2){
+                    flag = 1;
                     break;
                 }
             }
-            if(flag==0){
-                if(num-i == i){
-                    cout<<"Yes the Number is sum Of Two Primes: "<<i<<" + "<<i<<" = "<<num;
+            if(flag == 0){
+                if(num - i == i){
+                    cout<<"\nYes the Number is sum Of Two Primes: "<<i<<" + "<<i<<" = "<<num;
                     break;
                 }else{
                     primeOne=i;
@@ -29,10 +29,7 @@ void checkNumberIsSumOfTwoPrimes(int num){
                         }
                     }
                     if(flag==0){
-                        if(primeOne + primeTwo == num){
-                            cout<<"Yes the Number is sum Of Two Primes: "<<primeOne<<" + "<<primeTwo<<" = "<<num;
-                            break;
-                        }
+                        cout<<"\nYes the Number is sum Of Two Primes: "<<primeOne<<" + "<<primeTwo<<" = "<<num;
                     }
                 }
             }      
