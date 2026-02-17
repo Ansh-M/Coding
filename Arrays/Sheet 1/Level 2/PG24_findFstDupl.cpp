@@ -1,32 +1,40 @@
 #include<iostream>
 using namespace std;
 
-void firstduplicateOfANumberInAnArray(int numElem){    
-    int arr[numElem], count = 0;
+void firstElementwithDuplicate(int numElem){    
+    int arr[numElem], distDup = numElem-1, temp = 0;
+    bool arr1[numElem];
     
     cout<<"Enter Elements: ";
     for(int i=0 ; i<numElem ; i++){
         cin>>arr[i];
+        arr1[i] = false;
     }
-
-    int number = 0;  
+  
     cout<<"\n";
-    cout<<"Enter a Number to find first duplicate in the Array: ";
-    cin>>number;
 
     for(int i=0 ; i<numElem ; i++){
-        if(arr[i] == number){
-            ++count;
+        int count = 1, cnt = 0; 
+        
+        for(int j=i+1 ; j<numElem ; j++){
+            if(arr1[i] != true){
+                if(arr[j] == arr[i]) count++;
+                cnt++;
+        
+                if(count >= 2){
+                    arr1[j] = true;
+                    break;
+                }
 
-        }   
-    
-        if(count == 1 && i == numElem-1) {
-            cout<<"No Duplicates for this Number";
-        }else if(count >= 2){
-            cout<<"Yes";
-            break;
-        }else if(i == numElem-1) cout<<"This Number Doesn't exist";
+            }else break;
+        }
+        
+        if(cnt < distDup && count>=2){
+            distDup = cnt;
+            temp = arr[i];
+        }
     }
+    cout<<"First Element with Duplicate : "<<temp;
         
 }
 
@@ -35,6 +43,6 @@ int main(){
     int numberOfElements = 0;
     cin>>numberOfElements;
     
-    firstduplicateOfANumberInAnArray(numberOfElements);
+    firstElementwithDuplicate(numberOfElements);
     return 0;
 }
