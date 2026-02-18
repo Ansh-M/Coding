@@ -17,21 +17,21 @@ void duplicatesOfANumberInAnArray(int numElem){
         count = 0; 
         for(int j=0 ; j<numElem ; j++){
             if(arr1[i] != true){
-                if(arr[j] == arr[i]) count++;
-        
-                if(count >= 2){
-                    cout<<"\nDuplicate of "<<arr[i]<<": ";
-                    cout<<"Yes"<<endl;
-                    arr1[j] = true;
-                    break;
-
-                }else if(count == 1 && j == numElem-1){
-                    cout<<"\nDuplicate of "<<arr[i]<<": ";
-                    cout<<"No"<<endl;
+                if(arr[j] == arr[i]){
+                    count++;
+                    
+                    if(count >= 2) arr1[j] = true;
                 }
             }else break;
-        
         }
+        if(count >= 2){
+            cout<<"\nDuplicate of "<<arr[i]<<": ";
+            cout<<"Yes"<<endl;
+        }else if(count == 1){
+            cout<<"\nDuplicate of "<<arr[i]<<": ";
+            cout<<"No"<<endl;
+        }
+
     }
         
 }
