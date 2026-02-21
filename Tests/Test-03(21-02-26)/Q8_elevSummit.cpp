@@ -3,7 +3,19 @@ using namespace std;
 
 int summitOfTrail(int number, int arr[]){
     int summit = 0;
-    
+    if(arr[0] > arr[1]) return 0;
+    else if(arr[number-2] < arr[number-1]) return 0;
+    else{
+        for(int i=0 ; i<number ; i++){
+            if(arr[i] > summit) summit = arr[i];
+            if(arr[i+1] < summit){
+               for(int j=i+1 ; j<number ; j++){
+                if(arr[i] < arr[j] || summit < arr[j]) return 0;
+               } 
+            }
+        }
+        return summit;
+    }
 }
 
 int main(){
