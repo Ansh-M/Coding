@@ -8,20 +8,18 @@ void sumOfKConsecutiveElements(int size){
     for(int i=0 ; i<size ; i++) cin>>arr[i];
 
     int number = 0;
-    cout<<"\nEnter a Number to calculate maximum sum of that many consecutive elements: ";
+    cout<<"\nEnter a Number to calculate minimum sum of that many consecutive elements: ";
     cin>>number;
 
-    int sum = 0, maxSum = 0;
+    int sum = 0, minSum = 0;
     for(int i=0 ; i<=size-number ; i++){
         sum = 0;
-        for(int j=0 ; j<number ; j++){
-            sum += arr[i+j];
-        }
-        if(maxSum == 0) maxSum = sum;
-        else if(maxSum < sum) maxSum = sum;
-    
+        for(int j=0 ; j<number ; j++) sum += arr[i+j];
+
+        if(minSum == 0) minSum = sum;
+        if(minSum > sum) minSum = sum;
     }
-    cout<<"\nMax Sum of "<<number<<" elements is: "<<maxSum;
+    cout<<"\nMin Sum of "<<number<<" elements is: "<<minSum;
 }
 
 
