@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-void sumOfKConsecutiveElements(int size){
+void maxSumOfKConsecutiveElements(int size){
     int arr[size];
     
     cout<<"\nEnter Array Elements: ";
@@ -30,6 +30,6 @@ int main(){
     cout<<"Enter Array Size: ";
     cin>>size;
 
-    sumOfKConsecutiveElements(size);
+    maxSumOfKConsecutiveElements(size);
     return 0;
 }
