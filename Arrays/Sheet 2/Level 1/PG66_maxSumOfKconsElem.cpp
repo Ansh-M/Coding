@@ -14,11 +14,10 @@ void maxSumOfKConsecutiveElements(int size){
     int sum = 0, maxSum = 0;
     for(int i=0 ; i<=size-number ; i++){
         sum = 0;
-        for(int j=0 ; j<number ; j++){
-            sum += arr[i+j];
-        }
-        if(maxSum == 0) maxSum = sum;
-        else if(maxSum < sum) maxSum = sum;
+        for(int j=0 ; j<number ; j++) sum += arr[i+j];
+        
+        if(i == 0) maxSum = sum;
+        if(maxSum < sum) maxSum = sum;
     
     }
     cout<<"\nMax Sum of "<<number<<" elements is: "<<maxSum;

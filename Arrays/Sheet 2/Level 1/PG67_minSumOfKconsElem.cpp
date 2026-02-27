@@ -16,7 +16,7 @@ void minSumOfKConsecutiveElements(int size){
         sum = 0;
         for(int j=0 ; j<number ; j++) sum += arr[i+j];
 
-        if(minSum == 0) minSum = sum;
+        if(i==0) minSum = sum;
         if(minSum > sum) minSum = sum;
     }
     cout<<"\nMin Sum of "<<number<<" elements is: "<<minSum;
