@@ -9,20 +9,25 @@ void equilibriumIndices(int size){
     cout<<"\nEquilibrium Index/Indices in the Array: ";
     if(size < 3) cout<<"Size Too Short";
     else{
+        bool flag = false;
         for(int i=0 ; i<size ; i++){
             int sumLeft = 0, sumRight = 0;
             if(i == 0){
-                sumLeft = arr[i];
+                sumLeft = 0;
                 for(int j = i+1 ; j<size ; j++) sumRight += arr[j];
             }else if(i == size-1){
-                sumRight = arr[i];
+                sumRight = 0;
                 for(int j=i-1 ; j>=0 ; j--) sumLeft += arr[j];
             }else{
                 for(int j=0 ; j<i ; j++) sumLeft += arr[j];
 
                 for(int j=i+1 ; j<size ; j++) sumRight += arr[j];
             }
-            if(sumLeft == sumRight) cout<<i<<" ";
+            if(sumLeft == sumRight) {
+                cout<<i<<" ";
+                flag = true;
+            }
+            else if(i == size-1 && flag == false) cout<<"No Equilibrium Index/Indices in this array"<<endl;
 
         }
     }
