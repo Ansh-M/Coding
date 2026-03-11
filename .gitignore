@@ -6,3 +6,4 @@ node_modules/
 *.obj
 build/
 bin/
+BasicTemplateFile.cpp
