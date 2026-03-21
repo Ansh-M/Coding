@@ -26,15 +26,18 @@ void longestConsecutiveSequence(int size){
     }
 
     sortAsc(arr, size);
-    int count = 1;
+    int count = 1, maxCount = 0;
     
     cout<<"\nLongest Consecutive Sequence: ";
-    
     for(int i=1 ; i<size ; i++){
-        if(arr[i-1]+1 == arr[i]) count++;
+        if(arr[i-1]+1 == arr[i]){
+            count++;
+            if(maxCount < count) maxCount = count;
+        }
+        else count = 1;
     }
 
-    cout<<count;
+    cout<<maxCount;
 
 }
 
