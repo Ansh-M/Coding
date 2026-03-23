@@ -9,16 +9,14 @@ void stockBuySellOnce(int size){
     cout<<"\nMaximum Profit: ";
     if(size <= 3) cout<<"Atleast Enter 3 Prices";
     else{
-        int maxProfit = 0, sellPrice = arr[1], costPrice = arr[0];
+        int sellPrice = arr[1], costPrice = arr[0];
         for(int i=0 ; i<size ; i++){
-            if(i == 0) maxProfit = sellPrice - costPrice;
-
-            if(sellPrice - costPrice < 0) costPrice = arr[i];
-            else if(sellPrice - costPrice > maxProfit) maxProfit = sellPrice - costPrice;
+            if(costPrice > arr[i]) costPrice = arr[i];
             
-            if(i <= size-2) sellPrice = arr[i+1];
+            if(sellPrice < arr[i+1] && i <= size-2) sellPrice = arr[i+1];
+            
         }
-        cout<<maxProfit;
+        cout<<sellPrice-costPrice;
     }
 }
 
